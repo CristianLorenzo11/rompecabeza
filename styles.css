@@ -24,7 +24,7 @@ body {
     padding: 30px; /* Espaciado interior */
     background-color: #313030; /* Color de fondo */
     width: 80%; /* Ancho del borde */
-    max-width: 500px; /* Ancho máximo del borde */
+    max-width: 400px; /* Ancho máximo del borde */
     text-align: center; /* Alinear el contenido al centro */
     margin: auto; /* Centrar el borde horizontalmente */
     margin-top: 10px; /* Espacio superior */
@@ -76,18 +76,47 @@ body {
 
 
 .puzzle-piece {
-    width: calc(100% - 2px);
-    height: calc(100% - 2px);
+    width: calc(100% - 0px);
+    height: calc(100% - 0px);
     background-image: url('Designer\ -\ 2024-04-20T211548.297.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
     background-size: 300% 300%;
     transition: background-position 0.5s ease;
     cursor: pointer;
 }
-
-.puzzle-piece.selected {
-    border: 2px solid #4CAF50;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Efecto de relieve */
+.puzzle-piece1 {
+    width: calc(100% -  0px); /* Ajustar el tamaño para incluir el ancho del borde */
+    height: calc(100% -  0px); /* Ajustar el tamaño para incluir el ancho del borde */
+    background-image: url('Designer\ -\ 2024-04-20T212434.381.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
+    background-size: 300% 300%;
+    transition: background-position 0.5s ease, transform 0.2s ease; /* Agregar transición para transformar */
+    cursor: pointer;
 }
+.puzzle-piece2 {
+    width: calc(100% -  0px); /* Ajustar el tamaño para incluir el ancho del borde */
+    height: calc(100% -  0px); /* Ajustar el tamaño para incluir el ancho del borde */
+    background-image: url('Designer\ -\ 2024-04-20T211540.987.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
+    background-size: 300% 300%;
+    transition: background-position 0.5s ease, transform 0.2s ease; /* Agregar transición para transformar */
+    cursor: pointer;
+}
+.puzzle-piece3 {
+    width: calc(100% - 0px); /* Ajustar el tamaño para incluir el ancho del borde */
+    height: calc(100% - 0px); /* Ajustar el tamaño para incluir el ancho del borde */
+    background-image: url('Designer\ -\ 2024-04-21T152338.062.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
+    background-size: 300% 300%;
+    transition: background-position 0.5s ease, transform 0.2s ease; /* Agregar transición para transformar */
+    cursor: pointer;
+}
+.puzzle-piece3.selected,
+.puzzle-piece2.selected,
+.puzzle-piece1.selected,
+.puzzle-piece.selected {
+    border: 2px solid #03fa03; /* Borde verde cuando está seleccionado */
+    box-shadow: 0 0 10px 2px rgba(141, 232, 123, 0.7); /* Efecto de sombra difuminada verde manzana brillante */
+    transform: scale(1.1); /* Escalar la pieza seleccionada */
+}
+
+
 #page-container h1 {
     font-size: 3vw; /* Tamaño de fuente basado en el ancho de la ventana */
     font-weight: bold; /* Texto en negrita */
@@ -139,25 +168,44 @@ margin-bottom: 2px;
 }
 
 #next-button {
-    display: none;
+    float: right; /* Alinear a la derecha */
     padding: 6px 12px; /* Tamaño más pequeño */
     font-size: 15px; /* Tamaño de fuente más pequeño */
     background-color: #dddd09; /* Amarillo */
-
     color: rgb(0, 0, 0);
     border: 2px solid #050404; /* Borde de 2px sólido de color gris oscuro */
     border-radius: 4px; /* Bordes redondeados */
     cursor: pointer;
-    margin: auto; /* Centrar horizontalmente */
     margin-top: 20px; /* Espacio superior */
     animation: blink 1s infinite; /* Aplicar la animación de parpadeo */
 }
-
 #next-button:hover {
     background-color: #FF0000; /* Cambio de color al pasar el mouse */
     transform: scale(1.05); /* Efecto de aumento de tamaño al pasar el mouse */
 }
 
 #next-button:focus {
+    outline: none; /* Eliminar el contorno al hacer foco */
+}
+
+#anterior {
+    float: left; /* Alinear a la izquierda */
+    padding: 6px 12px; /* Tamaño más pequeño */
+    font-size: 15px; /* Tamaño de fuente más pequeño */
+    background-color: #dddd09; /* Amarillo */
+    color: rgb(0, 0, 0);
+    border: 2px solid #050404; /* Borde de 2px sólido de color gris oscuro */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer;
+    margin-top: 20px; /* Espacio superior */
+    animation: blink 1s infinite; /* Aplicar la animación de parpadeo */
+}
+
+#anterior {
+    background-color: #FF0000; /* Cambio de color al pasar el mouse */
+    transform: scale(1.05); /* Efecto de aumento de tamaño al pasar el mouse */
+}
+
+#anterior {
     outline: none; /* Eliminar el contorno al hacer foco */
 }

@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const pieces = document.querySelectorAll('.puzzle-piece');
+    const pieces = document.querySelectorAll('.puzzle-piece, .puzzle-piece1 , .puzzle-piece2 , .puzzle-piece3');
+
     const nextButton = document.getElementById('next-button'); // Aquí defines el botón "Ir al siguiente rompecabezas"
     let selectedPiece = null;
     let gameStarted = false; // Variable para indicar si el juego ha comenzado
@@ -96,3 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+
+
+
+
+
