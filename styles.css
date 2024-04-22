@@ -280,7 +280,7 @@ font-size: 20px; /* Tamaño de la fuente */
 @media screen and (max-width: 768px) {
     #modal-content {
         
-        font-size: 14px; /* Reducción del tamaño de la fuente para que quepa mejor en pantallas móviles */
+        font-size: 13px; /* Reducción del tamaño de la fuente para que quepa mejor en pantallas móviles */
         
     }
     #modal-content {
