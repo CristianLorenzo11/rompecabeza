@@ -5,34 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Puzzle Game</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Estilos para la ventana modal */
+
+/* Estilos para el contenedor del modal */
+
+  </style>
 </head>
 <body>
-    
+  <div id="modal-container">
+    <div id="modal-content">
+        <h2>¡Bienvenido al juego de rompecabezas!</h2>
+        
+        <p><strong>Instrucciones:</strong></p>
+        <ol>
+            <li><strong>Selección de piezas:</strong> Para mover una pieza, haz clic en ella. Seleccionará y resaltará.</li>
+            <li><strong>Intercambio de piezas:</strong> Después de seleccionar una pieza, haz clic en otra para intercambiarlas. Esto permite reorganizar las piezas para resolver el rompecabezas.</li>
+            <li><strong>Inicio del juego:</strong> Haz clic en el botón "Comenzar" para iniciar el juego. Las piezas se mezclarán aleatoriamente para crear un nuevo rompecabezas.</li>
+            <li><strong>Mezcla de piezas:</strong> Cada vez que comiences el juego, las piezas se mezclarán en una configuración aleatoria, garantizando un nuevo desafío en cada partida.</li>
+        </ol>
+        <button id="start-button-modal">Siguiente</button>
+    </div>
+</div>
+
     <div id="page-container"> 
         <h1>La Selva Misionera</h1>
-    <button id="start-button">Comenzar</button>
-    <div class="borde">
-    <div class="puzzle-container" id="puzzle-container">
-        <div class="puzzle-piece" id="piece1"></div>
-        <div class="puzzle-piece" id="piece2"></div>
-        <div class="puzzle-piece" id="piece3"></div>
-        <div class="puzzle-piece" id="piece4"></div>
-        <div class="puzzle-piece" id="piece5"></div>
-        <div class="puzzle-piece" id="piece6"></div>
-        <div class="puzzle-piece" id="piece7"></div>
-        <div class="puzzle-piece" id="piece8"></div>
-        <div class="puzzle-piece" id="piece9"></div>
-        
-    
-</div>
-    <div id="message-container"></div>
-      <!-- Botón para ir al siguiente rompecabezas -->
-      <a id="next-button" href="index copy.html" style="display: none;">Ir al siguiente</a>
-
-  
-</div>
-</div>
+        <button id="start-button">Comenzar</button>
+        <div class="borde">
+            <div class="puzzle-container" id="puzzle-container">
+                <div class="puzzle-piece" id="piece1"></div>
+                <div class="puzzle-piece" id="piece2"></div>
+                <div class="puzzle-piece" id="piece3"></div>
+                <div class="puzzle-piece" id="piece4"></div>
+                <div class="puzzle-piece" id="piece5"></div>
+                <div class="puzzle-piece" id="piece6"></div>
+                <div class="puzzle-piece" id="piece7"></div>
+                <div class="puzzle-piece" id="piece8"></div>
+                <div class="puzzle-piece" id="piece9"></div>
+            </div>
+            <div id="message-container"></div>
+            <!-- Botón para ir al siguiente rompecabezas -->
+            <a id="next-button" href="index copy.html" style="display: none;">Ir al siguiente</a>
+        </div>
+    </div>
 
 <script src="script.js"></script>
+<script>
+    // Mostrar la ventana modal al cargar la página
+    window.onload = function() {
+        document.getElementById('modal-container').style.display = 'block';
+    }
+
+    // Ocultar la ventana modal cuando se hace clic en el botón "Comenzar"
+    document.getElementById('start-button-modal').addEventListener('click', function() {
+        document.getElementById('modal-container').style.display = 'none';
+    });
+</script>
 </body>
 </html>
