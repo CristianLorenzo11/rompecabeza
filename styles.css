@@ -271,7 +271,7 @@ margin-bottom: 2px;
     border-radius: 20px; /* Borde redondeado */
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
     text-align: center; /* Centrar el contenido del modal */
-    font-family: 'Press Start 2P', cursive; /* Fuente de estilo de videojuego */
+    font-family: 'Retro Gaming', sans-serif;/* Fuente de estilo de videojuego */
     color: #333; /* Color de texto */
 font-size: 20px; /* Tamaño de la fuente */
     line-height: 1.5; /* Altura de línea */
