@@ -3,54 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Puzzle Game</title>
+  <title>rompecabezas</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Estilos para la ventana modal */
+    /* Estilos para la imagen de fondo y el botón de inicio */
+    #splash-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('inicio.jpeg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999; /* Asegura que esté delante de otros contenidos */
+    }
+/* Estilo base del botón */
+#start-button-splash {
+  padding: 15px 30px;
+  font-size: 20px;
+  background-color: #ff6600; /* Color de fondo inicial */
+  color: #fff;
+  border: none;
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+  cursor: pointer;
+  outline: none;
+  margin-top: -300px; /* Ajustar la posición hacia arriba */
+  transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
+  animation: brillo 2s infinite alternate; /* Animación de brillo constante */
+  filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.5)); /* Filtro de sombra */
+  text-decoration: none !important; /* Eliminar el subrayado */
+}
 
-/* Estilos para el contenedor del modal */
+/* Cambio de color de fondo al pasar el cursor */
+#start-button-splash:hover {
+  background-color: #ff9933; /* Cambiar el color de fondo al pasar el cursor */
+  transform: scale(1.1); /* Agrandar el botón al pasar el cursor */
+}
+
+/* Animación de brillo */
+@keyframes brillo {
+  from {
+    background-color: #ff6600; /* Color de fondo inicial */
+  }
+  to {
+    background-color: #ff9933; /* Color de fondo brillante */
+  }
+}
 
   </style>
 </head>
 <body>
-  <div id="modal-container">
-    <div id="modal-content">
-        <h2>¡Bienvenido al juego de rompecabezas!</h2>
-        
-        <p><strong>Instrucciones:</strong></p>
-        <ol>
-            <li><strong>Selección de piezas:</strong> Para mover una pieza, haz clic en ella. Seleccionará y resaltará.</li>
-            <li><strong>Intercambio de piezas:</strong> Después de seleccionar una pieza, haz clic en otra para intercambiarlas. Esto permite reorganizar las piezas para resolver el rompecabezas.</li>
-            <li><strong>Inicio del juego:</strong> Haz clic en el botón "Comenzar" para iniciar el juego. Las piezas se mezclarán aleatoriamente para crear un nuevo rompecabezas.</li>
-            <li><strong>Mezcla de piezas:</strong> Cada vez que comiences el juego, las piezas se mezclarán en una configuración aleatoria, garantizando un nuevo desafío en cada partida.</li>
-        </ol>
-        <button id="start-button-modal">Siguiente</button>
-    </div>
+
+<!-- Contenedor para la pantalla de bienvenida -->
+<div id="splash-container">
+  <button id="start-button-splash">Iniciar</button>
 </div>
 
-    <div id="page-container"> 
-        <h1>La Selva Misionera</h1>
-        <button id="start-button">Comenzar</button>
-        <div class="borde">
-            <div class="puzzle-container" id="puzzle-container">
-                <div class="puzzle-piece" id="piece1"></div>
-                <div class="puzzle-piece" id="piece2"></div>
-                <div class="puzzle-piece" id="piece3"></div>
-                <div class="puzzle-piece" id="piece4"></div>
-                <div class="puzzle-piece" id="piece5"></div>
-                <div class="puzzle-piece" id="piece6"></div>
-                <div class="puzzle-piece" id="piece7"></div>
-                <div class="puzzle-piece" id="piece8"></div>
-                <div class="puzzle-piece" id="piece9"></div>
-            </div>
-            <div id="message-container"></div>
-            <!-- Botón para ir al siguiente rompecabezas -->
-            <a id="next-button" href="index copy.html" style="display: none;">Ir al siguiente</a>
-        </div>
-    </div>
+<!-- Contenido principal -->
+<div id="modal-container" style="display: none;">
+  <div id="modal-content">
+      <h2>¡Bienvenido al juego de rompecabezas!</h2>
+      
+      <p><strong>Instrucciones:</strong></p>
+      <ol>
+          <li><strong>Selección de piezas:</strong> Para mover una pieza, haz clic en ella. Seleccionará y resaltará.</li>
+          <li><strong>Intercambio de piezas:</strong> Después de seleccionar una pieza, haz clic en otra para intercambiarlas. Esto permite reorganizar las piezas para resolver el rompecabezas.</li>
+          <li><strong>Inicio del juego:</strong> Haz clic en el botón "Comenzar" para iniciar el juego. Las piezas se mezclarán aleatoriamente para crear un nuevo rompecabezas.</li>
+          <li><strong>Mezcla de piezas:</strong> Cada vez que comiences el juego, las piezas se mezclarán en una configuración aleatoria, garantizando un nuevo desafío en cada partida.</li>
+      </ol>
+      
+      <button id="start-button-modal" onclick="window.location.href='index1.html'">Siguiente</button>
 
+  </div>
+</div>
 <script src="script.js"></script>
 <script>
+  // Función para ocultar el contenedor de bienvenida al hacer clic en el botón de inicio
+  document.getElementById('start-button-splash').addEventListener('click', function() {
+    document.getElementById('splash-container').style.display = 'none';
+    document.getElementById('modal-container').style.display = 'block'; // Mostrar el modal principal
+  
+    
     // Mostrar la ventana modal al cargar la página
     window.onload = function() {
         document.getElementById('modal-container').style.display = 'block';
@@ -60,6 +98,8 @@
     document.getElementById('start-button-modal').addEventListener('click', function() {
         document.getElementById('modal-container').style.display = 'none';
     });
+
+  })
 </script>
 </body>
 </html>

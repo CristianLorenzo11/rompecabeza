@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const pieces = document.querySelectorAll('.puzzle-piece, .puzzle-piece1 , .puzzle-piece2 , .puzzle-piece3');
+    const pieces = document.querySelectorAll('.puzzle-piece, .puzzle-piece1 , .puzzle-piece2 , .puzzle-piece3, .puzzle-piece4, .puzzle-piece5,.puzzle-piece6');
 
     const nextButton = document.getElementById('next-button'); // Aquí defines el botón "Ir al siguiente rompecabezas"
     let selectedPiece = null;
@@ -101,6 +101,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-
+  

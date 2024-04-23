@@ -66,13 +66,21 @@ body {
     font-family: 'Arial', sans-serif;
     letter-spacing: 1px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Aumentar la sombra */
+    text-decoration: none !important; /* Eliminar el subrayado */
     
 }
 
 #start-button:hover {
     background: linear-gradient(45deg, rgba(255, 0, 0, 1) 0%, rgba(255, 0, 0, 0.8) 50%, rgba(255, 165, 0, 0.8) 100%); /* Cambiar el color de fondo en hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Aumentar la sombra en hover */
+    transform: scale(1.05); /* Agrandar ligeramente en hover */
 }
+#start-button-modal:hover {
+    background: linear-gradient(45deg, rgba(255, 0, 0, 1) 0%, rgba(255, 0, 0, 0.8) 50%, rgba(255, 165, 0, 0.8) 100%); /* Cambiar el color de fondo en hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Aumentar la sombra en hover */
+    transform: scale(1.05) !important; /* Agrandar ligeramente en hover */
+}
+
 
 
 
@@ -124,7 +132,7 @@ border-radius: 10px;
 .puzzle-piece2 {
     width: calc(100% -  0px); /* Ajustar el tamaño para incluir el ancho del borde */
     height: calc(100% -  0px); /* Ajustar el tamaño para incluir el ancho del borde */
-    background-image: url('Designer\ -\ 2024-04-20T211540.987.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
+    background-image: url('Designer\ -\ 2024-04-22T225625.190.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
     background-size: 300% 300%;
     transition: background-position 0.5s ease, transform 0.2s ease; /* Agregar transición para transformar */
     cursor: pointer;
@@ -137,6 +145,36 @@ border-radius: 10px;
     transition: background-position 0.5s ease, transform 0.2s ease; /* Agregar transición para transformar */
     cursor: pointer;
 }
+
+.puzzle-piece4 {
+    width: calc(100% - 0px); /* Ajustar el tamaño para incluir el ancho del borde */
+    height: calc(100% - 0px); /* Ajustar el tamaño para incluir el ancho del borde */
+    background-image: url('Designer\ -\ 2024-04-22T224345.593.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
+    background-size: 300% 300%;
+    transition: background-position 0.5s ease, transform 0.2s ease; /* Agregar transición para transformar */
+    cursor: pointer;
+}
+.puzzle-piece5
+ {
+    width: calc(100% - 0px); /* Ajustar el tamaño para incluir el ancho del borde */
+    height: calc(100% - 0px); /* Ajustar el tamaño para incluir el ancho del borde */
+    background-image: url('Designer\ -\ 2024-04-22T225030.200.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
+    background-size: 300% 300%;
+    transition: background-position 0.5s ease, transform 0.2s ease; /* Agregar transición para transformar */
+    cursor: pointer;
+}
+.puzzle-piece6
+ {
+    width: calc(100% - 0px); /* Ajustar el tamaño para incluir el ancho del borde */
+    height: calc(100% - 0px); /* Ajustar el tamaño para incluir el ancho del borde */
+    background-image: url('Designer\ -\ 2024-04-22T231153.837.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
+    background-size: 300% 300%;
+    transition: background-position 0.5s ease, transform 0.2s ease; /* Agregar transición para transformar */
+    cursor: pointer;
+}
+.puzzle-piece6.selected,
+.puzzle-piece5.selected,
+.puzzle-piece4.selected,
 .puzzle-piece3.selected,
 .puzzle-piece2.selected,
 .puzzle-piece1.selected,
@@ -271,7 +309,8 @@ margin-bottom: 2px;
     border-radius: 20px; /* Borde redondeado */
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
     text-align: center; /* Centrar el contenido del modal */
-    font-family: 'Retro Gaming', sans-serif;/* Fuente de estilo de videojuego */
+    font-family: 'Retro Gaming', sans-serif;
+
     color: #333; /* Color de texto */
 font-size: 20px; /* Tamaño de la fuente */
     line-height: 1.5; /* Altura de línea */
