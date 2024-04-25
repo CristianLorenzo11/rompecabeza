@@ -6,6 +6,50 @@ document.addEventListener('DOMContentLoaded', () => {
     let gameStarted = false; // Variable para indicar si el juego ha comenzado
     let gameWon = false; // Variable para indicar si el juego ha sido ganado
 
+    // Función para verificar si el rompecabezas está desordenado
+    function estaDesordenado() {
+        const posicionesOriginales = [
+            '0% 0%', '-100% 0%', '-200% 0%',
+            '0% -100%', '-100% -100%', '-200% -100%',
+            '0% -200%', '-100% -200%', '-200% -200%'
+        ];
+
+        const posicionesActuales = Array.from(pieces).map(piece => piece.style.backgroundPosition);
+
+        return !posicionesActuales.every((posicion, index) => posicion === posicionesOriginales[index]);
+    }
+// Función para ordenar las piezas del rompecabezas
+function ordenarPiezas() {
+    const posicionesOriginales = [
+        '0% 0%', '-100% 0%', '-200% 0%',
+        '0% -100%', '-100% -100%', '-200% -100%',
+        '0% -200%', '-100% -200%', '-200% -200%'
+    ];
+
+    pieces.forEach((piece, index) => {
+        piece.style.backgroundPosition = posicionesOriginales[index];
+        startButton.style.display= 'none'
+    });
+}
+
+
+    // Evento de clic en el botón de ordenar
+    const botonOrdenar = document.getElementById('boton-ordenar');
+    botonOrdenar.addEventListener('click', ordenarSiDesordenado);
+// Función para ordenar las piezas del rompecabezas si está desordenado
+function ordenarSiDesordenado() {
+    console.log("Intentando ordenar...");
+    if (estaDesordenado()) {
+        console.log("Rompecabezas desordenado. Ordenando...");
+        ordenarPiezas();
+        console.log("Rompecabezas ordenado.");
+    } else {
+        console.log("El rompecabezas ya está ordenado.");
+        
+    }
+}
+
+
     // Asignar posiciones de fondo a cada pieza
     pieces.forEach((piece, index) => {
         piece.style.backgroundPosition = `-${index % 3 * 100}% -${Math.floor(index / 3) * 100}%`;
@@ -65,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!gameStarted) { // Permitir mezclar solo si el juego aún no ha comenzado
             gameStarted = true; // Marcar el juego como comenzado
             startButton.disabled = true; // Deshabilitar el botón después de hacer clic en él
+            startButton.style.display= 'none'
             enablePieceClicks(); // Habilitar los clics en las piezas
             const positions = [
                 '0% 0%', '-100% 0%', '-200% 0%', 
@@ -89,24 +134,105 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    
+    // Evento al hacer clic en el botón "Volver a Jugar"
+const restartButton = document.getElementById('volver-jugar');
+restartButton.addEventListener('click', restartGame);
+
+// Función para reiniciar el juego
+// Función para reiniciar el juego
+function restartGame() {
+    // Reinicia las variables de estado del juego
+    gameStarted = false;
+    gameWon = false;
+    selectedPiece = null;
+
+    // Restaura el mensaje del contenedor
+    const messageContainer = document.getElementById('message-container');
+    messageContainer.textContent = '';
+
+    // Restaura el botón de inicio
+    startButton.disabled = false;
+    startButton.style.display = 'block';
+
+    // Oculta el botón de siguiente
+    nextButton.style.display = 'none';
+
+    // Habilita los clics en las piezas del rompecabezas
+    enablePieceClicks();
+
+    // Reinicia las posiciones de las piezas del rompecabezas
+    pieces.forEach((piece, index) => {
+        piece.style.backgroundPosition = `-${index % 3 * 100}% -${Math.floor(index / 3) * 100}%`;
+
+        piece.classList.remove('selected'); // Elimina cualquier selección anterior
+    });
+}
+
+    
 });
 
 
 
-
+// Espera a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', () => {
-    const pieces = document.querySelectorAll('.puzzle-pieceF ,.puzzle-piece1 , .puzzle-piece2 , .puzzle-piece3, .puzzle-piece4, .puzzle-piece5,.puzzle-piece6' );
-
+    // Selecciona todas las piezas del rompecabezas y el botón de siguiente
+    const pieces = document.querySelectorAll('.puzzle-pieceF, .puzzle-piece1, .puzzle-piece2, .puzzle-piece3, .puzzle-piece4, .puzzle-piece5, .puzzle-piece6');
     const nextButton = document.getElementById('next-button');
+    
+    // Variables de estado del juego
     let selectedPieceF = null;
     let gameStartedF = false;
     let gameWonF = false;
+    
+    // Función para verificar si el rompecabezas está desordenado
+    function estaDesordenado() {
+        const posicionesOriginales = ['0% 0%', '-100% 0%', '0% -100%', '-100% -100%'];
 
+
+        const posicionesActuales = Array.from(pieces).map(piece => piece.style.backgroundPosition);
+
+        return !posicionesActuales.every((posicion, index) => posicion === posicionesOriginales[index]);
+    }
+// Función para ordenar las piezas del rompecabezas
+function ordenarPiezas() {
+    const posicionesOriginales = ['0% 0%', '-100% 0%', '0% -100%', '-100% -100%'];
+
+
+    pieces.forEach((piece, index) => {
+        piece.style.backgroundPosition = posicionesOriginales[index];
+        startButtonF.style.display= 'none'
+    });
+}
+
+
+    // Evento de clic en el botón de ordenar
+    const botonOrdenar = document.getElementById('boton-ordenar');
+    botonOrdenar.addEventListener('click', ordenarSiDesordenado);
+// Función para ordenar las piezas del rompecabezas si está desordenado
+function ordenarSiDesordenado() {
+    console.log("Intentando ordenar...");
+    if (estaDesordenado()) {
+        console.log("Rompecabezas desordenado. Ordenando...");
+        ordenarPiezas();
+        console.log("Rompecabezas ordenado.");
+    } else {
+        console.log("El rompecabezas ya está ordenado.");
+        
+    }
+}
+
+
+    
+
+    // Establece los estilos de fondo para cada pieza
     pieces.forEach((piece, index) => {
         piece.style.backgroundPosition = `-${index % 2 * 100}% -${Math.floor(index / 2) * 100}%`;
         piece.style.backgroundSize = '200% 200%';
     });
 
+    // Maneja la selección de una pieza del rompecabezas
     function selectPieceF(event) {
         if (gameStartedF && !gameWonF) {
             if (!selectedPieceF) {
@@ -121,6 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Intercambia las posiciones de dos piezas del rompecabezas
     function swapPiecesF(piece1, piece2) {
         if (!gameWonF) {
             const tempBackgroundPosition = piece1.style.backgroundPosition;
@@ -129,13 +256,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Comprueba si se ha ganado el juego
     function checkWinF() {
         const correctPositionsFacil = ['0% 0%', '-100% 0%', '0% -100%', '-100% -100%'];
         const currentPositions = Array.from(pieces).map(piece => piece.style.backgroundPosition);
         const win = JSON.stringify(currentPositions) === JSON.stringify(correctPositionsFacil);
         if (win) {
             const messageContainer = document.getElementById('message-container');
-            messageContainer.textContent = '¡Felicidades!  Eres asombroso';
+            messageContainer.textContent = '¡Felicidades! Eres asombroso';
             gameWonF = true;
             startButtonF.style.display = 'none';
             nextButton.style.display = 'block';
@@ -143,12 +271,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return win;
     }
 
+    // Habilita los clics en las piezas del rompecabezas
     function enablePieceClicksF() {
         pieces.forEach(piece => {
             piece.addEventListener('click', selectPieceF);
         });
     }
 
+    // Evento al hacer clic en el botón de inicio
     const startButtonF = document.getElementById('start-buttonF');
     startButtonF.addEventListener('click', () => {
         if (!gameStartedF) {
@@ -156,6 +286,8 @@ document.addEventListener('DOMContentLoaded', () => {
             startButtonF.disabled = true;
             enablePieceClicksF();
             const positions = ['0% 0%', '-100% 0%', '0% -100%', '-100% -100%'];
+            
+            // Baraja aleatoriamente las posiciones de las piezas
             function shuffleArray(array) {
                 for (let i = array.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
@@ -169,7 +301,42 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+    // Evento al hacer clic en el botón "Volver a Jugar"
+const restartButton = document.getElementById('volver-jugar');
+restartButton.addEventListener('click', restartGame);
+
+// Función para reiniciar el juego
+// Función para reiniciar el juego
+function restartGame() {
+    // Reinicia las variables de estado del juego
+    gameStartedF = false;
+    gameWonF = false;
+    selectedPieceF = null;
+
+    // Restaura el mensaje del contenedor
+    const messageContainer = document.getElementById('message-container');
+    messageContainer.textContent = '';
+
+    // Restaura el botón de inicio
+    startButtonF.disabled = false;
+    startButtonF.style.display = 'block';
+
+    // Oculta el botón de siguiente
+    nextButton.style.display = 'none';
+
+    // Habilita los clics en las piezas del rompecabezas
+    enablePieceClicksF();
+
+    // Reinicia las posiciones de las piezas del rompecabezas
+    pieces.forEach((piece, index) => {
+        piece.style.backgroundPosition = `-${index % 2 * 100}% -${Math.floor(index / 2) * 100}%`;
+        piece.classList.remove('selected'); // Elimina cualquier selección anterior
+    });
+}
+
+
 });
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const pieces = document.querySelectorAll('.puzzle-pieceD , .puzzle-piece1 , .puzzle-piece2 , .puzzle-piece3, .puzzle-piece4, .puzzle-piece5, .puzzle-piece6, .puzzle-piece7, .puzzle-piece8, .puzzle-piece9, .puzzle-piece10, .puzzle-piece11, .puzzle-piece12, .puzzle-piece13, .puzzle-piece14, .puzzle-piece15, .puzzle-piece16, .puzzle-piece17, .puzzle-piece18, .puzzle-piece19, .puzzle-piece20, .puzzle-piece21, .puzzle-piece22, .puzzle-piece23, .puzzle-piece24, .puzzle-piece25');
@@ -178,6 +345,55 @@ document.addEventListener('DOMContentLoaded', () => {
     let selectedPieceD = null; // Cambio de variable
     let gameStartedD = false; // Cambio de variable
     let gameWonD = false; // Cambio de variable
+     
+    // Función para verificar si el rompecabezas está desordenado
+    function estaDesordenado() {
+        const posicionesOriginales = [ // Cambio de nombre de variable
+        '0% 0%', '-100% 0%', '-200% 0%', '-300% 0%', '-400% 0%',
+        '0% -100%', '-100% -100%', '-200% -100%', '-300% -100%', '-400% -100%',
+        '0% -200%', '-100% -200%', '-200% -200%', '-300% -200%', '-400% -200%',
+        '0% -300%', '-100% -300%', '-200% -300%', '-300% -300%', '-400% -300%',
+        '0% -400%', '-100% -400%', '-200% -400%', '-300% -400%', '-400% -400%'
+    ];
+
+
+        const posicionesActuales = Array.from(pieces).map(piece => piece.style.backgroundPosition);
+
+        return !posicionesActuales.every((posicion, index) => posicion === posicionesOriginales[index]);
+    }
+// Función para ordenar las piezas del rompecabezas
+function ordenarPiezas() {
+    const posicionesOriginales = [ // Cambio de nombre de variable
+    '0% 0%', '-100% 0%', '-200% 0%', '-300% 0%', '-400% 0%',
+    '0% -100%', '-100% -100%', '-200% -100%', '-300% -100%', '-400% -100%',
+    '0% -200%', '-100% -200%', '-200% -200%', '-300% -200%', '-400% -200%',
+    '0% -300%', '-100% -300%', '-200% -300%', '-300% -300%', '-400% -300%',
+    '0% -400%', '-100% -400%', '-200% -400%', '-300% -400%', '-400% -400%'
+];
+
+
+    pieces.forEach((piece, index) => {
+        piece.style.backgroundPosition = posicionesOriginales[index];
+        startButtonD.style.display= 'none'
+    });
+}
+
+
+    // Evento de clic en el botón de ordenar
+    const botonOrdenar = document.getElementById('boton-ordenar');
+    botonOrdenar.addEventListener('click', ordenarSiDesordenado);
+// Función para ordenar las piezas del rompecabezas si está desordenado
+function ordenarSiDesordenado() {
+    console.log("Intentando ordenar...");
+    if (estaDesordenado()) {
+        console.log("Rompecabezas desordenado. Ordenando...");
+        ordenarPiezas();
+        console.log("Rompecabezas ordenado.");
+    } else {
+        console.log("El rompecabezas ya está ordenado.");
+        
+    }
+}
 
     pieces.forEach((piece, index) => {
         piece.style.backgroundPosition = `-${index % 5 * 100}% -${Math.floor(index / 5) * 100}%`;
@@ -237,6 +453,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!gameStartedD) { // Cambio de variable
             gameStartedD = true; // Cambio de variable
             startButtonD.disabled = true; // Cambio de variable
+                    startButtonD.style.display= 'none'
+            
             enablePieceClicksD(); // Cambio de función
             const positions = [
                 '0% 0%', '-100% 0%', '-200% 0%', '-300% 0%', '-400% 0%',
@@ -258,6 +476,43 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+
+    
+
+    // Evento al hacer clic en el botón "Volver a Jugar"
+const restartButton = document.getElementById('volver-jugar');
+restartButton.addEventListener('click', restartGame);
+
+// Función para reiniciar el juego
+function restartGame() {
+    // Reinicia las variables de estado del juego
+    gameStartedD = false;
+    gameWonD = false;
+    selectedPieceD = null;
+
+    // Restaura el mensaje del contenedor
+    const messageContainer = document.getElementById('message-container');
+    messageContainer.textContent = '';
+
+    // Restaura el botón de inicio
+    startButtonD.disabled = false;
+    startButtonD.style.display = 'block';
+
+    // Oculta el botón de siguiente
+    nextButton.style.display = 'none';
+
+    // Habilita los clics en las piezas del rompecabezas
+    enablePieceClicksD();
+
+    // Reinicia las posiciones de las piezas del rompecabezas
+pieces.forEach((piece, index) => {
+    piece.style.backgroundPosition = `-${index % 5 * 100}% -${Math.floor(index / 5) * 100}%`;
+    piece.classList.remove('selected'); // Elimina cualquier selección anterior
+});
+
+}
+
 });
 
 
@@ -314,7 +569,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectedDifficulty = selectDifficulty.value;
         if (selectedDifficulty === 'facil') {
             const pieces = document.querySelectorAll('.puzzle-pieceF');
-            const classes = ['puzzle-piece1','puzzle-piece0', 'puzzle-piece2', 'puzzle-piece3', 'puzzle-piece4', 'puzzle-piece5', 'puzzle-piece6','puzzle-piece7', 'puzzle-piece8', 'puzzle-piece'];
+            const classes = ['puzzle-piece1', 'puzzle-piece2', 'puzzle-piece3', 'puzzle-piece4', 'puzzle-piece5', 'puzzle-piece6','puzzle-piece7', 'puzzle-piece8', 'puzzle-piece'];
             let currentIndex = 0;
             
             cambiarBtn.addEventListener('click', () => {
@@ -329,7 +584,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         } else if (selectedDifficulty === 'medio') {
             const pieces = document.querySelectorAll('.puzzle-piece');
-            const classes = ['puzzle-piece1','puzzle-piece0', 'puzzle-piece2', 'puzzle-piece3', 'puzzle-piece4', 'puzzle-piece5', 'puzzle-piece6', 'puzzle-piece7','puzzle-piece8', 'puzzle-piece'];
+            const classes = ['puzzle-piece1', 'puzzle-piece2', 'puzzle-piece3', 'puzzle-piece4', 'puzzle-piece5', 'puzzle-piece6', 'puzzle-piece7','puzzle-piece8', 'puzzle-piece'];
             let currentIndex = 0;
             
             cambiarBtn.addEventListener('click', () => {
@@ -344,7 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         } else if (selectedDifficulty === 'dificil') { // Agregamos el bloque para el nivel Difícil
             const pieces = document.querySelectorAll('.puzzle-pieceD'); // Seleccionamos las piezas del nivel Difícil
-            const classes = ['puzzle-piece1', 'puzzle-piece0', 'puzzle-piece2', 'puzzle-piece3', 'puzzle-piece4', 'puzzle-piece5', 'puzzle-piece6', 'puzzle-piece7','puzzle-piece8','puzzle-piece']; // Clases para el nivel Difícil
+            const classes = ['puzzle-piece1', 'puzzle-piece2', 'puzzle-piece3', 'puzzle-piece4', 'puzzle-piece5', 'puzzle-piece6', 'puzzle-piece7','puzzle-piece8','puzzle-piece']; // Clases para el nivel Difícil
             let currentIndex = 0;
             
             cambiarBtn.addEventListener('click', () => {
@@ -361,7 +616,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Event listener para el botón "Volver a Jugar"
-document.getElementById('volver-jugar').addEventListener('click', () => {
-    location.reload(); // Recargar la página para reiniciar el juego
-});

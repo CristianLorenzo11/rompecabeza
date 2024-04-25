@@ -80,7 +80,7 @@ body {
 
 
 
-#cambiar, #volver-jugar {
+#cambiar, #volver-jugar, #boton-ordenar {
     font-size: 14px;
     padding: 8px 16px;
     margin: 0 10px;
@@ -94,24 +94,24 @@ body {
     
 }
 
-#cambiar:hover, #volver-jugar:hover {
+#cambiar:hover,#boton-ordenar:hover, #volver-jugar:hover {
     background-color: #2c0eaf; /* Azul más oscuro al pasar el ratón */
     transform: scale(1.10); /* Aumenta el tamaño del botón al hacer hover */
     filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.4)); /* Sombra más pronunciada al hacer hover */
 }
 
 
-#cambiar:hover, #volver-jugar:hover {
-    background-color: #2c0eaf; /* Azul más oscuro al pasar el ratón */
-    transform: scale(1.05); /* Aumenta el tamaño del botón al hacer hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombreado al hacer hover */
-}
-
-
 
 @media screen and (max-width: 768px) {
-    #difficulty {
+    #difficulty  {
         width: 80%;
+        filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.4)); 
+    }
+    #cambiar,
+    #boton-ordenar,
+    #volver-jugar {
+        margin-bottom: 20px; /* Ajusta el valor según sea necesario */
+        filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.4)); 
     }
 }
 
@@ -276,9 +276,6 @@ border-radius: 10px;
 }
 
 /* Estilos específicos para cada pieza */
-.puzzle-piece0 {
-    background-image: url('Designer\ -\ 2024-04-20T212309.426.jpeg');
-}
 .puzzle-piece1 {
     background-image: url('Designer\ -\ 2024-04-20T212434.381.jpeg');
 }
@@ -310,14 +307,8 @@ border-radius: 10px;
 }
 
 /* Continuar con las clases puzzle-piece7, puzzle-piece8, etc. para las demás piezas */
-
+.puzzle-pieceF.selected,
 .puzzle-pieceD.selected,
-.puzzle-piece6.selected,
-.puzzle-piece5.selected,
-.puzzle-piece4.selected,
-.puzzle-piece3.selected,
-.puzzle-piece2.selected,
-.puzzle-piece1.selected,
 .puzzle-piece.selected {
     border: 2px solid #ffffff; /* Borde verde cuando está seleccionado */
     box-shadow: 0 0 10px 2px rgba(141, 232, 123, 0.7); /* Efecto de sombra difuminada verde manzana brillante */
@@ -369,7 +360,7 @@ margin-bottom: 2px;
     }
 
     #message-container {
-        font-size: 4vw; /* Tamaño de fuente más grande para pantallas pequeñas */
+        font-size: 8vw; /* Tamaño de fuente más grande para pantallas pequeñas */
         padding: 3vw; /* Espaciado interno más grande para pantallas pequeñas */
         border-radius: 3vw; /* Bordes redondeados más grandes para pantallas pequeñas */
     }
