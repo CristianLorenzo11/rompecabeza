@@ -29,6 +29,7 @@ function ordenarPiezas() {
     pieces.forEach((piece, index) => {
         piece.style.backgroundPosition = posicionesOriginales[index];
         startButton.style.display= 'none'
+        
     });
 }
 
@@ -91,7 +92,10 @@ function ordenarSiDesordenado() {
             messageContainer.textContent = '¡Felicidades!  Eres asombroso';
             gameWon = true; // Marcar el juego como ganado
             startButton.style.display= 'none'
-            nextButton.style.display = 'block'; // Mostrar el botón "Ir al siguiente rompecabezas"
+                   // Desactiva el selector de dificultad
+        const difficultySelect = document.getElementById('difficulty');
+        difficultySelect.disabled = true;
+        
         }
         return win;
     }
@@ -155,6 +159,10 @@ function restartGame() {
     // Restaura el botón de inicio
     startButton.disabled = false;
     startButton.style.display = 'block';
+           // Desactiva el selector de dificultad
+           const difficultySelect = document.getElementById('difficulty');
+           difficultySelect.disabled = false;
+           
 
     // Oculta el botón de siguiente
     nextButton.style.display = 'none';
@@ -266,7 +274,10 @@ function ordenarSiDesordenado() {
             messageContainer.textContent = '¡Felicidades! Eres asombroso';
             gameWonF = true;
             startButtonF.style.display = 'none';
-            nextButton.style.display = 'block';
+               // Desactiva el selector de dificultad
+        const difficultySelect = document.getElementById('difficulty');
+        difficultySelect.disabled = true;
+        
         }
         return win;
     }
@@ -284,6 +295,7 @@ function ordenarSiDesordenado() {
         if (!gameStartedF) {
             gameStartedF = true;
             startButtonF.disabled = true;
+            startButtonF.style.display= 'none'
             enablePieceClicksF();
             const positions = ['0% 0%', '-100% 0%', '0% -100%', '-100% -100%'];
             
@@ -320,6 +332,8 @@ function restartGame() {
     // Restaura el botón de inicio
     startButtonF.disabled = false;
     startButtonF.style.display = 'block';
+    const difficultySelect = document.getElementById('difficulty');
+    difficultySelect.disabled = false;
 
     // Oculta el botón de siguiente
     nextButton.style.display = 'none';
@@ -437,7 +451,10 @@ function ordenarSiDesordenado() {
             messageContainer.textContent = '¡Felicidades! Eres asombroso';
             gameWonD = true;
             startButtonD.style.display = 'none';
-            nextButton.style.display = 'block';
+                   // Desactiva el selector de dificultad
+        const difficultySelect = document.getElementById('difficulty');
+        difficultySelect.disabled = true;
+        
         }
         return win;
     }
@@ -498,7 +515,9 @@ function restartGame() {
     // Restaura el botón de inicio
     startButtonD.disabled = false;
     startButtonD.style.display = 'block';
-
+    const difficultySelect = document.getElementById('difficulty');
+    difficultySelect.disabled = false;
+    
     // Oculta el botón de siguiente
     nextButton.style.display = 'none';
 
