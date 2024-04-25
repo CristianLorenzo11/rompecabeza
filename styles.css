@@ -276,6 +276,9 @@ border-radius: 10px;
 }
 
 /* Estilos específicos para cada pieza */
+.puzzle-piece0 {
+    background-image: url('Designer\ -\ 2024-04-20T212309.426.jpeg');
+}
 .puzzle-piece1 {
     background-image: url('Designer\ -\ 2024-04-20T212434.381.jpeg');
 }

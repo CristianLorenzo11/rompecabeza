@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectedDifficulty = selectDifficulty.value;
         if (selectedDifficulty === 'facil') {
             const pieces = document.querySelectorAll('.puzzle-pieceF');
-            const classes = ['puzzle-piece1', 'puzzle-piece2', 'puzzle-piece3', 'puzzle-piece4', 'puzzle-piece5', 'puzzle-piece6','puzzle-piece7', 'puzzle-piece8', 'puzzle-piece'];
+            const classes = ['puzzle-piece1','puzzle-piece0', 'puzzle-piece2', 'puzzle-piece3', 'puzzle-piece4', 'puzzle-piece5', 'puzzle-piece6','puzzle-piece7', 'puzzle-piece8', 'puzzle-piece'];
             let currentIndex = 0;
             
             cambiarBtn.addEventListener('click', () => {
@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         } else if (selectedDifficulty === 'medio') {
             const pieces = document.querySelectorAll('.puzzle-piece');
-            const classes = ['puzzle-piece1', 'puzzle-piece2', 'puzzle-piece3', 'puzzle-piece4', 'puzzle-piece5', 'puzzle-piece6', 'puzzle-piece7','puzzle-piece8', 'puzzle-piece'];
+            const classes = ['puzzle-piece1','puzzle-piece0', 'puzzle-piece2', 'puzzle-piece3', 'puzzle-piece4', 'puzzle-piece5', 'puzzle-piece6', 'puzzle-piece7','puzzle-piece8', 'puzzle-piece'];
             let currentIndex = 0;
             
             cambiarBtn.addEventListener('click', () => {
@@ -344,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         } else if (selectedDifficulty === 'dificil') { // Agregamos el bloque para el nivel Difícil
             const pieces = document.querySelectorAll('.puzzle-pieceD'); // Seleccionamos las piezas del nivel Difícil
-            const classes = ['puzzle-piece1', 'puzzle-piece2', 'puzzle-piece3', 'puzzle-piece4', 'puzzle-piece5', 'puzzle-piece6', 'puzzle-piece7','puzzle-piece8','puzzle-piece']; // Clases para el nivel Difícil
+            const classes = ['puzzle-piece1', 'puzzle-piece0', 'puzzle-piece2', 'puzzle-piece3', 'puzzle-piece4', 'puzzle-piece5', 'puzzle-piece6', 'puzzle-piece7','puzzle-piece8','puzzle-piece']; // Clases para el nivel Difícil
             let currentIndex = 0;
             
             cambiarBtn.addEventListener('click', () => {
