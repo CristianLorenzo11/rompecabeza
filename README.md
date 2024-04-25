@@ -1,2 +1,0 @@
-# rompecabeza
-rompecabezas

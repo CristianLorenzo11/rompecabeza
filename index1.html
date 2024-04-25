@@ -8,9 +8,23 @@
   
 </head>
 <body>
-
-<div id="page-container"> 
-    <h1>La Selva Misionera</h1>
+    <div class="custom-container">
+        <h1>Animales de la Selva Misionera</h1>
+        <select id="difficulty">
+            <option disabled selected>Selecciona un nivel</option>
+            <option value="facil">Fácil</option>
+            <option value="medio">Medio</option>
+            <option value="dificil">Difícil</option>
+        </select>
+          
+        <button  id="cambiar">cambiar imagen </button>
+        <button id="volver-jugar">Volver a Comenzar</button>
+    </div>
+    
+    
+    <div  id="message-container"></div>
+<div id="page-container"  > 
+    
     <button id="start-button">Comenzar</button>
     <div class="borde">
         <div class="puzzle-container" id="puzzle-container">
@@ -24,11 +38,56 @@
             <div class="puzzle-piece" id="piece8"></div>
             <div class="puzzle-piece" id="piece9"></div>
         </div>
-        <div id="message-container"></div>
-        <!-- Botón para ir al siguiente rompecabezas -->
-        <a id="next-button" href="index copy.html" >Ir al siguiente</a>
+        
     </div>
 </div>
+<div id="page-containerf" style="display: none;" > 
+    <button id="start-buttonF">Comenzar</button>
+    <div class="borde">
+        <div class="puzzle-containerF" id="puzzle-containerF">
+            <div class="puzzle-pieceF" id="piece1"></div>
+            <div class="puzzle-pieceF" id="piece2"></div>
+            <div class="puzzle-pieceF" id="piece3"></div>
+            <div class="puzzle-pieceF" id="piece4"></div>
+            
+        </div>
+    </div>
+</div>
+
+
+<div id="page-containerD" style="display: none;" >
+    <button id="start-buttonD">Comenzar</button>
+    <div class="borde">
+        <div class="puzzle-containerD" id="puzzle-containerD">
+            <div class="puzzle-pieceD" id="piece1"></div>
+            <div class="puzzle-pieceD" id="piece2"></div>
+            <div class="puzzle-pieceD" id="piece3"></div>
+            <div class="puzzle-pieceD" id="piece4"></div>
+            <div class="puzzle-pieceD" id="piece5"></div>
+            <div class="puzzle-pieceD" id="piece6"></div>
+            <div class="puzzle-pieceD" id="piece7"></div>
+            <div class="puzzle-pieceD" id="piece8"></div>
+            <div class="puzzle-pieceD" id="piece9"></div>
+            <div class="puzzle-pieceD" id="piece10"></div>
+            <div class="puzzle-pieceD" id="piece11"></div>
+            <div class="puzzle-pieceD" id="piece12"></div>
+            <div class="puzzle-pieceD" id="piece13"></div>
+            <div class="puzzle-pieceD" id="piece14"></div>
+            <div class="puzzle-pieceD" id="piece15"></div>
+            <div class="puzzle-pieceD" id="piece16"></div>
+            <div class="puzzle-pieceD" id="piece17"></div>
+            <div class="puzzle-pieceD" id="piece18"></div>
+            <div class="puzzle-pieceD" id="piece19"></div>
+            <div class="puzzle-pieceD" id="piece20"></div>
+            <div class="puzzle-pieceD" id="piece21"></div>
+            <div class="puzzle-pieceD" id="piece22"></div>
+            <div class="puzzle-pieceD" id="piece23"></div>
+            <div class="puzzle-pieceD" id="piece24"></div>
+            <div class="puzzle-pieceD" id="piece25"></div>
+        </div>
+    </div>
+</div>
+
 
 <script src="script.js"></script>
 

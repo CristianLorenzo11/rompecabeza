@@ -1,5 +1,6 @@
 
 body {
+    
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -9,7 +10,8 @@ body {
     opacity: 0.9; /* Ajustar la opacidad de la imagen de fondo */
 }
 
-#page-container {
+#page-container,
+#page-containerf,#page-containerD {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,9 +50,114 @@ body {
     100% {
         background-position: 100% 50%;
     }
+   
 }
-#start-button , 
-#start-button-modal{
+.custom-container {
+    text-align: center;
+    margin-top: 50px; /* Ajusta este valor según sea necesario para el espaciado deseado */
+}
+
+.custom-container h1 {
+    font-size: 36px; /* Tamaño de fuente del título */
+    font-weight: bold; /* Negrita */
+    color: #333; /* Color del texto */
+}
+#difficulty {
+    font-size: 12px;
+    padding: 8px 20px; /* Ajuste del tamaño del padding horizontal */
+    border: 2px solid #fff; /* Borde blanco */
+    background: linear-gradient(to right, #3498db, #7fb3d5); /* Degradado de azul a celeste */
+    color: #fff; /* Texto blanco */
+    text-transform: uppercase;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 220px; /* Ajuste del ancho del select */
+}
+#difficulty option {
+    background: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+}
+
+
+
+#cambiar, #volver-jugar {
+    font-size: 14px;
+    padding: 8px 16px;
+    margin: 0 10px;
+    border: none;
+    background: linear-gradient(to right, #3498db, #7fb3d5); /* Degradado de azul a celeste */
+    color: #fff; /* Texto blanco */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease, filter 0.3s ease; /* Añadido filter a la transición */
+    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.5)); /* Sombra blanca aplicada por defecto */
+    
+}
+
+#cambiar:hover, #volver-jugar:hover {
+    background-color: #2c0eaf; /* Azul más oscuro al pasar el ratón */
+    transform: scale(1.10); /* Aumenta el tamaño del botón al hacer hover */
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.4)); /* Sombra más pronunciada al hacer hover */
+}
+
+
+#cambiar:hover, #volver-jugar:hover {
+    background-color: #2c0eaf; /* Azul más oscuro al pasar el ratón */
+    transform: scale(1.05); /* Aumenta el tamaño del botón al hacer hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombreado al hacer hover */
+}
+
+
+
+@media screen and (max-width: 768px) {
+    #difficulty {
+        width: 80%;
+    }
+}
+
+
+
+#buttonm {
+    background-color: #4682B4; /* Color de
+
+.custom-buttons {
+    display: flex;
+    justify-content: center; /* Centrar los botones horizontalmente */
+    align-items: center; /* Centrar los botones verticalmente */
+    margin-top: 10px; /* Espacio entre el título y los botones */
+}
+
+.custom-button {
+    margin-top: 10px;
+    margin-right: 10px; /* Espacio entre los botones */
+    padding: 6px 12px; /* Reducir el tamaño de los botones */
+    font-size: 14px; /* Reducir el tamaño de la fuente */
+    background-color: #FF6347; /* Color de fondo para el botón "facil" */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-decoration: none !important;
+}
+
+#buttonm {
+    background-color: #4682B4; /* Color de fondo para el botón "medio" */
+}
+
+
+
+
+
+#start-buttonD,
+#start-buttonF,
+#start-button,
+#start-button-modal {
     margin-bottom: 0px;
     margin-top: 5px;
     padding: 8px 20px; /* Reducir el tamaño del botón */
@@ -67,8 +174,12 @@ body {
     letter-spacing: 1px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Aumentar la sombra */
     text-decoration: none !important; /* Eliminar el subrayado */
-    
+    display: block; /* Convertir en bloque para que funcione margin: auto; */
+    margin: 5px auto; /* Centrar horizontalmente */
+    text-align: center; /* Centrar texto dentro del botón */
+    animation: blink 1s infinite; /* Aplicar la animación de parpadeo */
 }
+
 
 #start-button:hover {
     background: linear-gradient(45deg, rgba(255, 0, 0, 1) 0%, rgba(255, 0, 0, 0.8) 50%, rgba(255, 165, 0, 0.8) 100%); /* Cambiar el color de fondo en hover */
@@ -94,7 +205,7 @@ body {
 }
 
 
-.puzzle-container {
+.puzzle-container{
     width: 80vw;
     max-width: 400px;
     height: 80vw;
@@ -109,69 +220,95 @@ border-radius: 10px;
     overflow: hidden;
     margin: auto; /* Centrar horizontalmente */
 }
+.puzzle-containerF {
+    width: 80vw;
+    max-width: 400px;
+    height: 80vw;
+    max-height: 400px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas para 4 piezas */
+    grid-template-rows: repeat(2, 1fr); /* 2 filas para 4 piezas */
+    gap: 1px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Efecto de sombra blanco */
+    overflow: hidden;
+    margin: auto; /* Centrar horizontalmente */
+}
+.puzzle-containerD {
+    width: 80vw;
+    max-width: 400px;
+    height: 80vw;
+    max-height: 400px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas para 25 piezas */
+    grid-template-rows: repeat(5, 1fr); /* 5 filas para 25 piezas */
+    gap: 1px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Efecto de sombra blanco */
+    overflow: hidden;
+    margin: auto; /* Centrar horizontalmente */
+}
 
 
 
-.puzzle-piece {
+
+
+.puzzle-pieceD,
+.puzzle-piece,
+.puzzle-pieceF {
     width: calc(100% - 0px);
     height: calc(100% - 0px);
-    background-image: url('Designer\ -\ 2024-04-20T211548.297.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
+    background-image: url('Designer\ -\ 2024-04-24T235731.459.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
     background-size: 300% 300%;
     transition: background-position 0.5s ease;
     cursor: pointer;
     
 }
-.puzzle-piece1 {
-    width: calc(100% -  0px); /* Ajustar el tamaño para incluir el ancho del borde */
-    height: calc(100% -  0px); /* Ajustar el tamaño para incluir el ancho del borde */
-    background-image: url('Designer\ -\ 2024-04-20T212434.381.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
-    background-size: 300% 300%;
-    transition: background-position 0.5s ease, transform 0.2s ease; /* Agregar transición para transformar */
-    cursor: pointer;
-}
-.puzzle-piece2 {
-    width: calc(100% -  0px); /* Ajustar el tamaño para incluir el ancho del borde */
-    height: calc(100% -  0px); /* Ajustar el tamaño para incluir el ancho del borde */
-    background-image: url('Designer\ -\ 2024-04-22T225625.190.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
-    background-size: 300% 300%;
-    transition: background-position 0.5s ease, transform 0.2s ease; /* Agregar transición para transformar */
-    cursor: pointer;
-}
-.puzzle-piece3 {
+/* Estilo común para todas las piezas */
+.puzzle-piece {
     width: calc(100% - 0px); /* Ajustar el tamaño para incluir el ancho del borde */
     height: calc(100% - 0px); /* Ajustar el tamaño para incluir el ancho del borde */
-    background-image: url('Designer\ -\ 2024-04-21T152338.062.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
     background-size: 300% 300%;
     transition: background-position 0.5s ease, transform 0.2s ease; /* Agregar transición para transformar */
     cursor: pointer;
 }
 
+/* Estilos específicos para cada pieza */
+.puzzle-piece1 {
+    background-image: url('Designer\ -\ 2024-04-20T212434.381.jpeg');
+}
+
+.puzzle-piece2 {
+    background-image: url('Designer\ -\ 2024-04-22T225625.190.jpeg');
+}
+
+.puzzle-piece3 {
+    background-image: url('Designer\ -\ 2024-04-21T152338.062.jpeg');
+}
+
 .puzzle-piece4 {
-    width: calc(100% - 0px); /* Ajustar el tamaño para incluir el ancho del borde */
-    height: calc(100% - 0px); /* Ajustar el tamaño para incluir el ancho del borde */
-    background-image: url('Designer\ -\ 2024-04-22T224345.593.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
-    background-size: 300% 300%;
-    transition: background-position 0.5s ease, transform 0.2s ease; /* Agregar transición para transformar */
-    cursor: pointer;
+    background-image: url('Designer\ -\ 2024-04-22T224345.593.jpeg');
 }
-.puzzle-piece5
- {
-    width: calc(100% - 0px); /* Ajustar el tamaño para incluir el ancho del borde */
-    height: calc(100% - 0px); /* Ajustar el tamaño para incluir el ancho del borde */
-    background-image: url('Designer\ -\ 2024-04-22T225030.200.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
-    background-size: 300% 300%;
-    transition: background-position 0.5s ease, transform 0.2s ease; /* Agregar transición para transformar */
-    cursor: pointer;
+
+.puzzle-piece5 {
+    background-image: url('Designer\ -\ 2024-04-22T225030.200.jpeg');
 }
-.puzzle-piece6
- {
-    width: calc(100% - 0px); /* Ajustar el tamaño para incluir el ancho del borde */
-    height: calc(100% - 0px); /* Ajustar el tamaño para incluir el ancho del borde */
-    background-image: url('Designer\ -\ 2024-04-22T231153.837.jpeg'); /* Cambia 'imagen_puzzle.jpg' por la ruta de tu imagen de rompecabezas */
-    background-size: 300% 300%;
-    transition: background-position 0.5s ease, transform 0.2s ease; /* Agregar transición para transformar */
-    cursor: pointer;
+
+.puzzle-piece6 {
+    background-image: url('Designer\ -\ 2024-04-22T231153.837.jpeg');
 }
+.puzzle-piece7 {
+    background-image: url('Designer\ -\ 2024-04-25T001449.308.jpeg');
+}
+.puzzle-piece8 {
+    background-image: url('Designer\ -\ 2024-04-25T000859.564.jpeg');
+}
+
+/* Continuar con las clases puzzle-piece7, puzzle-piece8, etc. para las demás piezas */
+
+.puzzle-pieceD.selected,
 .puzzle-piece6.selected,
 .puzzle-piece5.selected,
 .puzzle-piece4.selected,
@@ -194,6 +331,18 @@ border-radius: 10px;
 margin-bottom: 2px;
 }
 
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+
 #message-container {
     margin-top: 2vh; /* Aumentar el espacio superior */
     font-size: 3vw; /* Tamaño de fuente basado en el ancho de la ventana */
@@ -201,11 +350,13 @@ margin-bottom: 2px;
     text-align: center;
     padding: 2vh;
     border-radius: 2vw; /* Bordes redondeados basados en el ancho de la ventana */
-    color: white;
+    color: #ffeb3b; /* Color de texto llamativo */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Sombra de texto */
+    animation: pulse 2s infinite alternate; /* Animación de pulsación */
 
-    transform: scale(0.9);
-    transition: transform 0.3s ease-in-out, background-color 0.3s;
 }
+
+
 
 @media screen and (max-width: 768px) {
     /* Estilos adicionales para pantallas más pequeñas */
@@ -235,50 +386,6 @@ margin-bottom: 2px;
     100% { opacity: 0; } /* Invisible al final */
 }
 
-#next-button {
-    float: right; /* Alinear a la derecha */
-    padding: 6px 12px; /* Tamaño más pequeño */
-    font-size: 15px; /* Tamaño de fuente más pequeño */
-    background-color: #dddd09; /* Amarillo */
-    color: rgb(0, 0, 0);
- /* Borde de 2px sólido de color gris oscuro */
-    border-radius: 4px; /* Bordes redondeados */
-    cursor: pointer;
-    margin-top: 20px; /* Espacio superior */
-    animation: blink 1s infinite; /* Aplicar la animación de parpadeo */
-    text-decoration: none; /* Eliminar el subrayado */
-}
-#next-button:hover {
-    background-color: #FF0000; /* Cambio de color al pasar el mouse */
-    transform: scale(1.05); /* Efecto de aumento de tamaño al pasar el mouse */
-}
-
-#next-button:focus {
-    outline: none; /* Eliminar el contorno al hacer foco */
-}
-
-#anterior {
-    float: left; /* Alinear a la izquierda */
-    padding: 6px 12px; /* Tamaño más pequeño */
-    font-size: 15px; /* Tamaño de fuente más pequeño */
-    background-color: #10dd09; /* Amarillo */
-    color: rgb(0, 0, 0);
-
-    border-radius: 4px; /* Bordes redondeados */
-    cursor: pointer;
-    margin-top: 20px; /* Espacio superior */
-    animation: blink 1s infinite; /* Aplicar la animación de parpadeo */
-    text-decoration: none; /* Eliminar el subrayado */
-}
-
-#anterior {
- 
-    transform: scale(1.05); /* Efecto de aumento de tamaño al pasar el mouse */
-}
-
-#anterior {
-    outline: none; /* Eliminar el contorno al hacer foco */
-}
 /* Estilos para el contenedor del modal */
 #modal-container {
     display: none;
