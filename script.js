@@ -44,6 +44,7 @@ botonOrdenar.addEventListener('click', () => {
         console.log("Clics deshabilitados para esta pieza.");
         const messageContainer = document.getElementById('message-container');
         messageContainer.textContent = '¡CLIC EN VOLVER A COMENZAR!';
+        startButton.style.display= 'none'
     });
 });
 
@@ -235,6 +236,7 @@ botonOrdenar.addEventListener('click', () => {
         console.log("Clics deshabilitados para esta pieza.");
         const messageContainer = document.getElementById('message-container');
         messageContainer.textContent = '¡CLIC EN VOLVER A COMENZAR!';
+        startButtonF.style.display= 'none'
     });
 });
 
@@ -422,7 +424,7 @@ botonOrdenar.addEventListener('click', () => {
         console.log("Clics deshabilitados para esta pieza.");
         const messageContainer = document.getElementById('message-container');
         messageContainer.textContent = '¡CLIC EN VOLVER A COMENZAR!';
-
+        startButtonD.style.display= 'none'
     });
 });
 
