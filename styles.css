@@ -309,6 +309,8 @@ border-radius: 10px;
 /* Continuar con las clases puzzle-piece7, puzzle-piece8, etc. para las demás piezas */
 .puzzle-pieceF.selected,
 .puzzle-pieceD.selected,
+.puzzle-piece1.selected,.puzzle-piece2.selected,.puzzle-piece3.selected,.puzzle-piece4.selected,
+.puzzle-piece5.selected,.puzzle-piece6.selected,.puzzle-piece7.selected,.puzzle-piece8.selected,
 .puzzle-piece.selected {
     border: 2px solid #ffffff; /* Borde verde cuando está seleccionado */
     box-shadow: 0 0 10px 2px rgba(141, 232, 123, 0.7); /* Efecto de sombra difuminada verde manzana brillante */

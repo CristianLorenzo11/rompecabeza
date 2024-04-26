@@ -33,10 +33,20 @@ function ordenarPiezas() {
     });
 }
 
+// Evento de clic en el botón de ordenar
+const botonOrdenar = document.getElementById('boton-ordenar');
+botonOrdenar.addEventListener('click', () => {
+    ordenarSiDesordenado();
+    // Deshabilitar la capacidad de seleccionar piezas después de ordenar
+    pieces.forEach(piece => {
+        console.log("Intentando deshabilitar clics...");
+        piece.removeEventListener('click', selectPiece);
+        console.log("Clics deshabilitados para esta pieza.");
+        const messageContainer = document.getElementById('message-container');
+        messageContainer.textContent = '¡CLIC EN VOLVER A COMENZAR!';
+    });
+});
 
-    // Evento de clic en el botón de ordenar
-    const botonOrdenar = document.getElementById('boton-ordenar');
-    botonOrdenar.addEventListener('click', ordenarSiDesordenado);
 // Función para ordenar las piezas del rompecabezas si está desordenado
 function ordenarSiDesordenado() {
     console.log("Intentando ordenar...");
@@ -46,9 +56,9 @@ function ordenarSiDesordenado() {
         console.log("Rompecabezas ordenado.");
     } else {
         console.log("El rompecabezas ya está ordenado.");
-        
     }
 }
+
 
 
     // Asignar posiciones de fondo a cada pieza
@@ -214,10 +224,20 @@ function ordenarPiezas() {
     });
 }
 
+// Evento de clic en el botón de ordenar
+const botonOrdenar = document.getElementById('boton-ordenar');
+botonOrdenar.addEventListener('click', () => {
+    ordenarSiDesordenado();
+    // Deshabilitar la capacidad de seleccionar piezas después de ordenar
+    pieces.forEach(piece => {
+        console.log("Intentando deshabilitar clics...");
+        piece.removeEventListener('click', selectPieceF);
+        console.log("Clics deshabilitados para esta pieza.");
+        const messageContainer = document.getElementById('message-container');
+        messageContainer.textContent = '¡CLIC EN VOLVER A COMENZAR!';
+    });
+});
 
-    // Evento de clic en el botón de ordenar
-    const botonOrdenar = document.getElementById('boton-ordenar');
-    botonOrdenar.addEventListener('click', ordenarSiDesordenado);
 // Función para ordenar las piezas del rompecabezas si está desordenado
 function ordenarSiDesordenado() {
     console.log("Intentando ordenar...");
@@ -227,7 +247,6 @@ function ordenarSiDesordenado() {
         console.log("Rompecabezas ordenado.");
     } else {
         console.log("El rompecabezas ya está ordenado.");
-        
     }
 }
 
@@ -392,10 +411,21 @@ function ordenarPiezas() {
     });
 }
 
+// Evento de clic en el botón de ordenar
+const botonOrdenar = document.getElementById('boton-ordenar');
+botonOrdenar.addEventListener('click', () => {
+    ordenarSiDesordenado();
+    // Deshabilitar la capacidad de seleccionar piezas después de ordenar
+    pieces.forEach(piece => {
+        console.log("Intentando deshabilitar clics...");
+        piece.removeEventListener('click', selectPieceD);
+        console.log("Clics deshabilitados para esta pieza.");
+        const messageContainer = document.getElementById('message-container');
+        messageContainer.textContent = '¡CLIC EN VOLVER A COMENZAR!';
 
-    // Evento de clic en el botón de ordenar
-    const botonOrdenar = document.getElementById('boton-ordenar');
-    botonOrdenar.addEventListener('click', ordenarSiDesordenado);
+    });
+});
+
 // Función para ordenar las piezas del rompecabezas si está desordenado
 function ordenarSiDesordenado() {
     console.log("Intentando ordenar...");
@@ -405,9 +435,9 @@ function ordenarSiDesordenado() {
         console.log("Rompecabezas ordenado.");
     } else {
         console.log("El rompecabezas ya está ordenado.");
-        
     }
 }
+
 
     pieces.forEach((piece, index) => {
         piece.style.backgroundPosition = `-${index % 5 * 100}% -${Math.floor(index / 5) * 100}%`;
