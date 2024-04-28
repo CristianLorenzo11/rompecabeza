@@ -44,7 +44,6 @@ botonOrdenar.addEventListener('click', () => {
         console.log("Clics deshabilitados para esta pieza.");
         const messageContainer = document.getElementById('message-container');
         messageContainer.textContent = '¡CLIC EN VOLVER A COMENZAR!';
-        startButton.style.display= 'none'
     });
 });
 
@@ -79,9 +78,14 @@ function ordenarSiDesordenado() {
                 selectedPiece.classList.remove('selected'); // Quitar la clase 'selected' de la pieza previamente seleccionada
                 selectedPiece = null;
                 checkWin(); // Verificar si se ha ganado el juego después de cada movimiento
-            }
+            
+            // Reproducir el sonido al seleccionar una pieza
+            var pieceSound = document.getElementById('pieceSound');
+            pieceSound.play();}
         }
     }
+    
+    
 
     // Función para intercambiar las posiciones de dos piezas
     function swapPieces(piece1, piece2) {
@@ -91,8 +95,6 @@ function ordenarSiDesordenado() {
             piece2.style.backgroundPosition = tempBackgroundPosition;
         }
     }
-
-    // Función para verificar si todas las piezas están en las posiciones correctas
     function checkWin() {
         const correctPositions = ['0% 0%', '-100% 0%', '-200% 0%', '0% -100%', 
         '-100% -100%', '-200% -100%', '0% -200%', '-100% -200%', '-200% -200%']
@@ -100,16 +102,21 @@ function ordenarSiDesordenado() {
         const win = JSON.stringify(currentPositions) === JSON.stringify(correctPositions);
         if (win) {
             const messageContainer = document.getElementById('message-container');
-            messageContainer.textContent = '¡Felicidades!  Eres asombroso';
+            messageContainer.textContent = '¡Felicidades! Eres asombroso';
             gameWon = true; // Marcar el juego como ganado
-            startButton.style.display= 'none'
-                   // Desactiva el selector de dificultad
-        const difficultySelect = document.getElementById('difficulty');
-        difficultySelect.disabled = true;
-        
+            
+            // Reproducir el sonido de victoria
+            var winSound = document.getElementById('winSound');
+            winSound.play();
+            
+            // Ocultar el botón de inicio y desactivar el selector de dificultad
+            startButton.style.display = 'none';
+            const difficultySelect = document.getElementById('difficulty');
+            difficultySelect.disabled = true;
         }
         return win;
     }
+    
 
     // Asignar el manejador de eventos de clic a las piezas solo después de que se haya presionado el botón "Comenzar"
     function enablePieceClicks() {
@@ -236,7 +243,6 @@ botonOrdenar.addEventListener('click', () => {
         console.log("Clics deshabilitados para esta pieza.");
         const messageContainer = document.getElementById('message-container');
         messageContainer.textContent = '¡CLIC EN VOLVER A COMENZAR!';
-        startButtonF.style.display= 'none'
     });
 });
 
@@ -295,6 +301,10 @@ function ordenarSiDesordenado() {
             messageContainer.textContent = '¡Felicidades! Eres asombroso';
             gameWonF = true;
             startButtonF.style.display = 'none';
+            // Reproducir el sonido de victoria
+            var winSound = document.getElementById('winSound');
+            winSound.play();
+            
                // Desactiva el selector de dificultad
         const difficultySelect = document.getElementById('difficulty');
         difficultySelect.disabled = true;
@@ -424,7 +434,7 @@ botonOrdenar.addEventListener('click', () => {
         console.log("Clics deshabilitados para esta pieza.");
         const messageContainer = document.getElementById('message-container');
         messageContainer.textContent = '¡CLIC EN VOLVER A COMENZAR!';
-        startButtonD.style.display= 'none'
+
     });
 });
 
@@ -482,6 +492,10 @@ function ordenarSiDesordenado() {
             const messageContainer = document.getElementById('message-container');
             messageContainer.textContent = '¡Felicidades! Eres asombroso';
             gameWonD = true;
+            // Reproducir el sonido de victoria
+            var winSound = document.getElementById('winSound');
+            winSound.play();
+            
             startButtonD.style.display = 'none';
                    // Desactiva el selector de dificultad
         const difficultySelect = document.getElementById('difficulty');
