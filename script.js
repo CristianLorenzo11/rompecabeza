@@ -104,6 +104,9 @@ function ordenarSiDesordenado() {
             const messageContainer = document.getElementById('message-container');
             messageContainer.textContent = '¡Felicidades! Eres asombroso';
             gameWon = true; // Marcar el juego como ganado
+             // Detener la música de fondo
+        var backgroundMusic = document.getElementById('startSound');
+        backgroundMusic.pause();
             
             // Reproducir el sonido de victoria
             var winSound = document.getElementById('winSound');
@@ -132,6 +135,9 @@ function ordenarSiDesordenado() {
             gameStarted = true; // Marcar el juego como comenzado
             startButton.disabled = true; // Deshabilitar el botón después de hacer clic en él
             startButton.style.display= 'none'
+var startSound = document.getElementById('startSound');
+        startSound.play();
+
             enablePieceClicks(); // Habilitar los clics en las piezas
             const positions = [
                 '0% 0%', '-100% 0%', '-200% 0%', 
@@ -278,6 +284,9 @@ function ordenarSiDesordenado() {
                 selectedPieceF.classList.remove('selected');
                 selectedPieceF = null;
                 checkWinF();
+                // Reproducir el sonido al seleccionar una pieza
+            var pieceSound = document.getElementById('pieceSound');
+            pieceSound.play();
             }
         }
     }
@@ -301,6 +310,9 @@ function ordenarSiDesordenado() {
             messageContainer.textContent = '¡Felicidades! Eres asombroso';
             gameWonF = true;
             startButtonF.style.display = 'none';
+             // Detener la música de fondo
+        var backgroundMusic = document.getElementById('startSound');
+        backgroundMusic.pause();
             // Reproducir el sonido de victoria
             var winSound = document.getElementById('winSound');
             winSound.play();
@@ -327,6 +339,9 @@ function ordenarSiDesordenado() {
             gameStartedF = true;
             startButtonF.disabled = true;
             startButtonF.style.display= 'none'
+            var startSound = document.getElementById('startSound');
+        startSound.play();
+
             enablePieceClicksF();
             const positions = ['0% 0%', '-100% 0%', '0% -100%', '-100% -100%'];
             
@@ -466,6 +481,9 @@ function ordenarSiDesordenado() {
                 selectedPieceD.classList.remove('selected');
                 selectedPieceD = null;
                 checkWinD();
+                // Reproducir el sonido al seleccionar una pieza
+            var pieceSound = document.getElementById('pieceSound');
+            pieceSound.play();
             }
         }
     }
@@ -492,6 +510,9 @@ function ordenarSiDesordenado() {
             const messageContainer = document.getElementById('message-container');
             messageContainer.textContent = '¡Felicidades! Eres asombroso';
             gameWonD = true;
+             // Detener la música de fondo
+        var backgroundMusic = document.getElementById('startSound');
+        backgroundMusic.pause();
             // Reproducir el sonido de victoria
             var winSound = document.getElementById('winSound');
             winSound.play();
@@ -517,6 +538,9 @@ function ordenarSiDesordenado() {
             gameStartedD = true; // Cambio de variable
             startButtonD.disabled = true; // Cambio de variable
                     startButtonD.style.display= 'none'
+                    // Reproducir el sonido de inicio
+        var startSound = document.getElementById('startSound');
+        startSound.play();
             
             enablePieceClicksD(); // Cambio de función
             const positions = [
